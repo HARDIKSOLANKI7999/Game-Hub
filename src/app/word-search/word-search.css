@@ -1,0 +1,55 @@
+.words,
+.board {
+  width: min(92vw, 520px);
+}
+
+.words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.words span {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--panel);
+  font-weight: 800;
+}
+
+.words .done {
+  color: #04111f;
+  background: var(--green);
+  text-decoration: line-through;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cell {
+  min-width: 0;
+  aspect-ratio: 1;
+  padding: 0 !important;
+  display: grid;
+  place-items: center;
+  color: var(--text) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  font-size: clamp(0.9rem, 4vw, 1.35rem);
+}
+
+.cell.selected {
+  color: #04111f !important;
+  background: var(--amber) !important;
+}
+
+.stat-box {
+  text-align: center;
+}

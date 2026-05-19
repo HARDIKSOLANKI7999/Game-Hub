@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  font-family: 'Segoe UI', sans-serif;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at top, #1e293b, #020617);
+
+  color: white;
+}
+
+/* PAGE */
+.game-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 15px;
+}
+
+/* HUD */
+.hud {
+  width: 700px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 12px;
+}
+
+/* LOGO */
+.logo {
+  font-size: 34px;
+  font-weight: bold;
+
+  color: #60a5fa;
+
+  text-shadow:
+    0 0 10px #60a5fa,
+    0 0 20px #2563eb;
+}
+
+/* SCORE */
+.score-panel {
+  display: flex;
+  gap: 12px;
+}
+
+.box {
+  width: 100px;
+
+  padding: 10px;
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 15px rgba(255,255,255,0.1);
+
+  font-size: 14px;
+}
+
+.box span {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  color: #22c55e;
+}
+
+/* GAME AREA */
+.game-wrapper {
+
+  position: relative;
+
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 0 30px rgba(96,165,250,0.3);
+}
+
+/* CANVAS */
+canvas {
+
+  background:
+    linear-gradient(
+      45deg,
+      #84cc16,
+      #65a30d
+    );
+
+  border:
+    5px solid rgba(255,255,255,0.15);
+
+  border-radius: 30px;
+
+  max-width: 95vw;
+  max-height: 75vh;
+}
+
+/* CONTROLS */
+.controls {
+  margin-top: 12px;
+
+  opacity: 0.8;
+
+  font-size: 15px;
+}
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.75);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* POPUP */
+.popup {
+
+  width: 320px;
+
+  padding: 30px;
+
+  border-radius: 30px;
+
+  text-align: center;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,0.2);
+
+  animation: popup 0.25s ease;
+}
+
+.popup h1 {
+  margin-bottom: 10px;
+}
+
+.popup button {
+
+  margin-top: 12px;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #22c55e,
+      #16a34a
+    );
+
+  color: black;
+
+  font-weight: bold;
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.popup button:hover {
+  transform: scale(1.07);
+}
+
+@keyframes popup {
+
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .hud {
+    width: 95%;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .box {
+    width: 80px;
+  }
+
+  .box span {
+    font-size: 18px;
+  }
+}

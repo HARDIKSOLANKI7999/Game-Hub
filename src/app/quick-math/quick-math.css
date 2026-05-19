@@ -1,0 +1,47 @@
+.card {
+  width: min(92vw, 440px);
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-align: center;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.equation {
+  margin-bottom: 18px;
+  font-size: clamp(2.4rem, 10vw, 4rem);
+  font-weight: 900;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  min-width: 0;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  outline: 0;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+input:focus {
+  border-color: var(--cyan);
+}
+
+p {
+  margin: 18px 0 0;
+  color: var(--green);
+  font-weight: 800;
+}
+
+.stat-box {
+  text-align: center;
+}

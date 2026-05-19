@@ -1,0 +1,24 @@
+<main class="game-container">
+  <h1>Water Sort</h1>
+
+  <section class="top-bar">
+    <div class="stat-box">{{ message }}</div>
+    <button (click)="restart()">Restart</button>
+  </section>
+
+  <section class="tubes" aria-label="Water sort tubes">
+    <button
+      class="tube"
+      *ngFor="let tube of tubes; let i = index"
+      [class.selected]="selected === i"
+      (click)="pick(i)"
+      aria-label="Tube"
+    >
+      <span
+        *ngFor="let color of tube"
+        class="liquid"
+        [class]="color"
+      ></span>
+    </button>
+  </section>
+</main>

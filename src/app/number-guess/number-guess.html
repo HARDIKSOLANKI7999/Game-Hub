@@ -1,0 +1,26 @@
+<div class="guess-page">
+  <div class="bg-grid"></div>
+  <div class="game-card">
+    <h1 class="title">GUESS MASTER</h1>
+    <p class="subtitle">Crack the secret number from 1 to 100.</p>
+
+    <div class="stats">
+      <div class="stat-box"><span>Attempts</span><h2>{{ attempts }}</h2></div>
+      <div class="stat-box"><span>Timer</span><h2>{{ timer }}s</h2></div>
+      <div class="stat-box"><span>Best</span><h2>{{ bestScore || '--' }}</h2></div>
+    </div>
+
+    <div class="number-display">
+      <div class="pulse-ring"></div>
+      <div class="question-mark">?</div>
+    </div>
+
+    <div class="input-area">
+      <input type="number" [(ngModel)]="guess" min="1" max="100" placeholder="Enter number" (keyup.enter)="checkGuess()">
+      <button (click)="checkGuess()">GUESS</button>
+    </div>
+
+    <div class="message" [ngClass]="messageType">{{ message }}</div>
+    <button class="restart-btn" (click)="restartGame()">NEW GAME</button>
+  </div>
+</div>

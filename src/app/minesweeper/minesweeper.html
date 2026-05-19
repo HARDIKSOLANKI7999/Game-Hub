@@ -1,0 +1,45 @@
+<div class="game-page">
+  <div class="hud">
+    <div class="left">
+      <select [(ngModel)]="difficulty" (change)="changeDifficulty()">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+
+    <div class="center">
+      <div class="hud-box">Flags {{ flagsLeft }}</div>
+      <div class="hud-box">Time {{ timer }}</div>
+    </div>
+
+    <div class="right">
+      <button (click)="startGame()">Restart</button>
+    </div>
+  </div>
+
+  <div class="board" [style.gridTemplateColumns]="'repeat(' + cols + ', 1fr)'">
+    <button
+      *ngFor="let cell of board; let i = index"
+      class="cell"
+      [class.revealed]="cell.revealed"
+      [class.mine]="cell.mine && cell.revealed"
+      [style.background]="cell.revealed ? getRevealedColor(cell) : '#83c341'"
+      (click)="revealCell(i)"
+      (contextmenu)="toggleFlag($event, i)">
+      <span *ngIf="cell.flagged && !cell.revealed">F</span>
+      <span *ngIf="cell.mine && cell.revealed">M</span>
+      <span *ngIf="cell.revealed && !cell.mine && cell.count > 0" [style.color]="getNumberColor(cell.count)">
+        {{ cell.count }}
+      </span>
+    </button>
+  </div>
+</div>
+
+<div class="popup-overlay" *ngIf="gameOver">
+  <div class="popup">
+    <h1 *ngIf="won">YOU WIN</h1>
+    <h1 *ngIf="!won">GAME OVER</h1>
+    <button (click)="startGame()">Play Again</button>
+  </div>
+</div>

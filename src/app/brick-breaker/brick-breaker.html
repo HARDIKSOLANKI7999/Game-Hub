@@ -1,0 +1,23 @@
+<div class="game-page">
+  <div class="hud">
+    <div class="logo">BRICK BREAKER X</div>
+    <div class="stats">
+      <div class="box">Score {{ score }}</div>
+      <div class="box">Lives {{ lives }}</div>
+    </div>
+    <button class="restart-btn" (click)="startGame()">Restart</button>
+  </div>
+
+  <div class="game-container">
+    <canvas #gameCanvas width="900" height="550" (mousemove)="movePaddle($event)"></canvas>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="gameOver">
+  <div class="popup">
+    <h1 *ngIf="won">YOU WIN</h1>
+    <h1 *ngIf="!won">GAME OVER</h1>
+    <p>Final Score: {{ score }}</p>
+    <button (click)="startGame()">Play Again</button>
+  </div>
+</div>

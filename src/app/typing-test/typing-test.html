@@ -1,0 +1,22 @@
+<main class="game-container">
+  <h1>Typing Test</h1>
+
+  <section class="top-bar">
+    <div class="stat-box">Time: {{ seconds }}s</div>
+    <div class="stat-box">WPM: {{ wpm }}</div>
+    <div class="stat-box">Accuracy: {{ accuracy }}%</div>
+    <button (click)="restart()">Restart</button>
+  </section>
+
+  <p class="paragraph">{{ paragraph }}</p>
+
+  <textarea
+    [(ngModel)]="text"
+    (input)="onType()"
+    [disabled]="done"
+    placeholder="Start typing..."
+    rows="5"
+  ></textarea>
+
+  <p class="result" *ngIf="done">Done: {{ wpm }} WPM at {{ accuracy }}% accuracy.</p>
+</main>

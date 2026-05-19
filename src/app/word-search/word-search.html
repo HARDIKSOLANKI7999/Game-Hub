@@ -1,0 +1,23 @@
+<main class="game-container">
+  <h1>Word Search</h1>
+
+  <section class="top-bar">
+    <div class="stat-box">Found: {{ found.size }} / {{ words.length }}</div>
+    <button (click)="newGame()">New Grid</button>
+  </section>
+
+  <section class="words">
+    <span *ngFor="let word of words" [class.done]="found.has(word)">{{ word }}</span>
+  </section>
+
+  <section class="board" aria-label="Word search grid">
+    <button
+      class="cell"
+      *ngFor="let letter of grid; let i = index"
+      [class.selected]="selected.includes(i)"
+      (click)="pick(i)"
+    >
+      {{ letter }}
+    </button>
+  </section>
+</main>

@@ -1,0 +1,186 @@
+.dashboard {
+  min-height: 100vh;
+  padding: clamp(20px, 4vw, 56px);
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(34, 211, 238, 0.12), transparent 34%),
+    linear-gradient(240deg, rgba(251, 191, 36, 0.10), transparent 28%),
+    radial-gradient(circle at 55% -12%, rgba(96, 165, 250, 0.24), transparent 34%),
+    #070a12;
+}
+
+.dashboard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+.hero,
+.games {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  max-width: 980px;
+  margin: 0 auto 34px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #34d399;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(3.8rem, 12vw, 9rem);
+  font-weight: 900;
+  line-height: 0.9;
+  color: #f8fafc;
+}
+
+.subtitle {
+  max-width: 620px;
+  margin: 10px 0 0;
+  color: #aab6c8;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.card {
+  min-height: 230px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.035)),
+    rgba(13, 19, 33, 0.82);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.32);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: auto 18px 18px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22d3ee, #34d399, #fbbf24);
+  transform: scaleX(0.24);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  outline: none;
+  transform: translateY(-6px);
+  border-color: rgba(34, 211, 238, 0.55);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.42), 0 0 32px rgba(34, 211, 238, 0.14);
+}
+
+.card:hover::after,
+.card:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.icon {
+  width: 62px;
+  height: 62px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  color: #06111f;
+  font-weight: 900;
+  background: linear-gradient(135deg, #22d3ee, #34d399);
+  box-shadow: 0 16px 32px rgba(34, 211, 238, 0.24);
+}
+
+.tag {
+  color: #34d399;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card h2 {
+  margin: 10px 0 8px;
+  color: #f8fafc;
+  font-size: 1.35rem;
+}
+
+.card p {
+  margin: 0;
+  color: #9aa7bd;
+  line-height: 1.5;
+}
+
+.tower {
+  background:
+    linear-gradient(#06111f, #06111f) center 14px / 6px 34px no-repeat,
+    linear-gradient(135deg, #22d3ee, #34d399);
+}
+
+.snake::before,
+.flappy::before,
+.memory::before,
+.mine::before,
+.brick::before,
+.racer::before,
+.tiles::before {
+  content: "";
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #06111f;
+}
+
+.snake::before { border-radius: 18px 18px 8px 18px; }
+.flappy::before { border-radius: 50% 50% 50% 12px; }
+.memory::before { box-shadow: 10px 8px 0 rgba(6, 17, 31, 0.6); }
+.mine::before { border-radius: 50%; }
+.brick::before { box-shadow: -12px 0 0 rgba(6, 17, 31, 0.55), 12px 0 0 rgba(6, 17, 31, 0.55); }
+.racer::before { width: 26px; height: 42px; }
+.sudoku {
+  font-size: 1.9rem;
+}
+
+.tiles::before {
+  width: 38px;
+  height: 38px;
+  background:
+    linear-gradient(#06111f 0 0) 0 0 / 17px 17px,
+    linear-gradient(#06111f 0 0) 21px 0 / 17px 17px,
+    linear-gradient(#06111f 0 0) 0 21px / 17px 17px,
+    linear-gradient(#06111f 0 0) 21px 21px / 17px 17px;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 560px) {
+  .games {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,11 @@
+<main class="game-container">
+  <h1>Space Shooter</h1>
+
+  <section class="top-bar">
+    <div class="stat-box">Score: {{ score }}</div>
+    <div class="stat-box">Move: WASD / Arrows, Shoot: Space</div>
+    <button (click)="restart()">Restart</button>
+  </section>
+
+  <canvas #canvas width="420" height="600" aria-label="Space shooter game"></canvas>
+</main>

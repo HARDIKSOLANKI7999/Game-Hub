@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>2048</h1>
+
+  <div class="top">
+    <div>Score: {{ score }}</div>
+    <div>Best: {{ bestScore }}</div>
+    <button (click)="startGame()">Restart</button>
+  </div>
+
+  <div class="grid">
+    <div class="cell" *ngFor="let tile of board" [attr.data-value]="tile">
+      <span *ngIf="tile">{{ tile }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="won">
+  <div class="popup">
+    <h2>2048 Achieved</h2>
+    <button (click)="startGame()">Play Again</button>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="gameOver">
+  <div class="popup">
+    <h2>Game Over</h2>
+    <p>Final Score: {{ score }}</p>
+    <button (click)="startGame()">Play Again</button>
+  </div>
+</div>

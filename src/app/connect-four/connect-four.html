@@ -1,0 +1,28 @@
+<main class="game-container">
+  <h1>Connect Four</h1>
+
+  <section class="top-bar">
+    <div class="stat-box" *ngIf="!winner">Turn: {{ currentPlayer | titlecase }}</div>
+    <div class="stat-box" *ngIf="winner && winner !== 'draw'">{{ winner | titlecase }} wins</div>
+    <div class="stat-box" *ngIf="winner === 'draw'">Draw game</div>
+    <button (click)="restart()">Restart</button>
+  </section>
+
+  <section class="drops" aria-label="Drop piece">
+    <button *ngFor="let col of [].constructor(cols); let c = index" (click)="drop(c)" [disabled]="!!winner">
+      {{ c + 1 }}
+    </button>
+  </section>
+
+  <section class="board" aria-label="Connect Four board">
+    <button
+      class="cell"
+      *ngFor="let cell of board; let i = index"
+      [class.red]="cell === 'red'"
+      [class.yellow]="cell === 'yellow'"
+      (click)="drop(i % cols)"
+      [disabled]="!!winner"
+      aria-label="Board cell"
+    ></button>
+  </section>
+</main>

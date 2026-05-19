@@ -1,0 +1,19 @@
+<div class="game-wrapper">
+  <h1>Flappy Pro</h1>
+
+  <div class="hud">
+    <div class="score-box">Score: {{ score }}</div>
+    <div class="score-box">Best: {{ bestScore }}</div>
+  </div>
+
+  <canvas #gameCanvas width="420" height="650" (click)="fly()"></canvas>
+  <div class="controls">Space or tap to fly</div>
+</div>
+
+<div class="overlay" *ngIf="gameOver">
+  <div class="popup">
+    <h2>Game Over</h2>
+    <p>Your Score: {{ score }}</p>
+    <button (click)="startGame()">Play Again</button>
+  </div>
+</div>

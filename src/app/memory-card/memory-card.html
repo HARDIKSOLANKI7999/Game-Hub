@@ -1,0 +1,27 @@
+<div class="game-container">
+  <h1>Memory Cards</h1>
+
+  <div class="top-bar">
+    <div>Moves: {{ moves }}</div>
+    <div>Time: {{ time }}s</div>
+    <button (click)="startGame()">Restart</button>
+  </div>
+
+  <div class="grid">
+    <button class="card" *ngFor="let card of cards; let i = index" (click)="flipCard(i)" [class.flipped]="card.flipped || card.matched">
+      <div class="inner">
+        <div class="front">?</div>
+        <div class="back">{{ card.value }}</div>
+      </div>
+    </button>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="won">
+  <div class="popup">
+    <h2>You Won</h2>
+    <p>Moves: {{ moves }}</p>
+    <p>Time: {{ time }}s</p>
+    <button (click)="startGame()">Play Again</button>
+  </div>
+</div>

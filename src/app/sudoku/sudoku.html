@@ -1,0 +1,35 @@
+<main class="game-container">
+  <h1>Sudoku</h1>
+
+  <section class="top-bar">
+    <div class="stat-box">Mistakes: {{ mistakes }}</div>
+    <div class="stat-box">{{ message }}</div>
+    <button (click)="newGame()">New Puzzle</button>
+  </section>
+
+  <section class="board" aria-label="Sudoku board">
+    <input
+      *ngFor="let cell of board; let i = index"
+      class="cell"
+      inputmode="numeric"
+      maxlength="1"
+      [readOnly]="cell.fixed"
+      [value]="cell.value || ''"
+      [class.fixed]="cell.fixed"
+      [class.bad]="isBad(i)"
+      [class.selected]="selected === i"
+      (focus)="selected = i"
+      (input)="setCell(i, $any($event.target).value)"
+      (dblclick)="clearCell(i)"
+      aria-label="Sudoku cell"
+    />
+  </section>
+
+  <div class="overlay" *ngIf="isComplete()">
+    <div class="popup">
+      <h2>You Solved It</h2>
+      <p>Mistakes: {{ mistakes }}</p>
+      <button (click)="newGame()">Play Again</button>
+    </div>
+  </div>
+</main>

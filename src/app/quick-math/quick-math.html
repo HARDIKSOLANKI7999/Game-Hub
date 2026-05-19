@@ -1,0 +1,28 @@
+<main class="game-container">
+  <h1>Quick Math</h1>
+
+  <section class="top-bar">
+    <div class="stat-box">Time: {{ seconds }}s</div>
+    <div class="stat-box">Score: {{ score }}</div>
+    <div class="stat-box">Level: {{ level }}</div>
+    <button (click)="restart()">Restart</button>
+  </section>
+
+  <section class="card">
+    <div class="equation">{{ a }} {{ op }} {{ b }} = ?</div>
+
+    <form (ngSubmit)="submit()">
+      <input
+        name="answer"
+        type="number"
+        [(ngModel)]="answer"
+        [disabled]="!running"
+        autocomplete="off"
+        autofocus
+      />
+      <button type="submit" [disabled]="!running">Check</button>
+    </form>
+
+    <p *ngIf="!running">Game over. Final score: {{ score }}</p>
+  </section>
+</main>

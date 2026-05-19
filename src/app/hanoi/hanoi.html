@@ -1,0 +1,53 @@
+<div class="game-container">
+  <h1>Tower of Hanoi</h1>
+
+  <div class="top-bar">
+    <div class="disk-control">
+      Disks: {{ diskCount }}
+      <button (click)="changeDisks(-1)" aria-label="Decrease disks">-</button>
+      <button (click)="changeDisks(1)" aria-label="Increase disks">+</button>
+    </div>
+    <div class="moves">Moves: {{ moves }} / Min: {{ getMinMoves() }}</div>
+    <button class="restart" (click)="startGame()">Restart</button>
+  </div>
+
+  <div class="rods">
+    <div class="rod" (click)="selectRod('A')" (dragover)="allowDrop($event)" (drop)="onDrop('A')"
+      [class.selected]="selectedRod === 'A'">
+      <div class="pole"></div>
+      <div class="base"></div>
+      <div class="disk" *ngFor="let disk of rods.A; let i = index" [draggable]="i === rods.A.length - 1"
+        (dragstart)="onDragStart('A')" [style.width.px]="disk * 35" [style.background]="getColor(disk)">
+      </div>
+    </div>
+
+    <div class="rod" (click)="selectRod('B')" (dragover)="allowDrop($event)" (drop)="onDrop('B')"
+      [class.selected]="selectedRod === 'B'">
+      <div class="pole"></div>
+      <div class="base"></div>
+      <div class="disk" *ngFor="let disk of rods.B; let i = index" [draggable]="i === rods.B.length - 1"
+        (dragstart)="onDragStart('B')" [style.width.px]="disk * 35" [style.background]="getColor(disk)">
+      </div>
+    </div>
+
+    <div class="rod" (click)="selectRod('C')" (dragover)="allowDrop($event)" (drop)="onDrop('C')"
+      [class.selected]="selectedRod === 'C'">
+      <div class="pole"></div>
+      <div class="base"></div>
+      <div class="disk" *ngFor="let disk of rods.C; let i = index" [draggable]="i === rods.C.length - 1"
+        (dragstart)="onDragStart('C')" [style.width.px]="disk * 35" [style.background]="getColor(disk)">
+      </div>
+    </div>
+  </div>
+
+  <p class="status-line">{{ statusMessage }}</p>
+
+  <div class="overlay" *ngIf="showWinPopup">
+    <div class="popup">
+      <h2>You Won</h2>
+      <p>Moves: {{ moves }}</p>
+      <p>Minimum: {{ getMinMoves() }}</p>
+      <button (click)="restartGame()">Play Again</button>
+    </div>
+  </div>
+</div>

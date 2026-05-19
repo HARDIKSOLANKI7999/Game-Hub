@@ -1,0 +1,20 @@
+<div class="game-container">
+  <h1>Tic Tac Toe</h1>
+  <div class="status">Turn: <span>{{ currentPlayer }}</span></div>
+
+  <div class="board">
+    <button class="cell" *ngFor="let cell of board; let i = index" (click)="makeMove(i)" [class.x]="cell === 'X'" [class.o]="cell === 'O'">
+      {{ cell }}
+    </button>
+  </div>
+
+  <button (click)="restart()">Restart</button>
+</div>
+
+<div class="overlay" *ngIf="winner">
+  <div class="popup">
+    <h2 *ngIf="winner !== 'Draw'">Player {{ winner }} Wins</h2>
+    <h2 *ngIf="winner === 'Draw'">It's a Draw</h2>
+    <button (click)="restart()">Play Again</button>
+  </div>
+</div>

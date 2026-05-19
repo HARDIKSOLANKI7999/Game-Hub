@@ -1,0 +1,29 @@
+<div class="game-page">
+  <div class="hud">
+    <div class="logo">Snake X</div>
+    <div class="score-panel">
+      <div class="box">Score <span>{{ score }}</span></div>
+      <div class="box">Best <span>{{ bestScore }}</span></div>
+    </div>
+  </div>
+
+  <div class="game-wrapper">
+    <canvas
+      #gameCanvas
+      width="700"
+      height="700"
+      (touchstart)="handleTouchStart($event)"
+      (touchmove)="handleTouchMove($event)">
+    </canvas>
+  </div>
+
+  <div class="controls">Arrow keys or swipe to move</div>
+</div>
+
+<div class="overlay" *ngIf="gameOver">
+  <div class="popup">
+    <h1>Game Over</h1>
+    <p>Your Score: {{ score }}</p>
+    <button (click)="startGame()">Play Again</button>
+  </div>
+</div>

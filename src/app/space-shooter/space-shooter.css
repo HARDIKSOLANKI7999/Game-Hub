@@ -1,0 +1,19 @@
+canvas {
+  width: min(92vw, 420px);
+  aspect-ratio: 7 / 10;
+  background: #07111f;
+}
+
+.stat-box {
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .top-bar {
+    align-items: stretch !important;
+  }
+
+  .top-bar > * {
+    width: 100%;
+  }
+}
