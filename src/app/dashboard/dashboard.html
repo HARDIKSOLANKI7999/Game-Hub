@@ -1,129 +1,146 @@
 <main class="dashboard">
   <section class="hero">
-    <!-- <p class="eyebrow">Arcade command center</p> -->
-    <h1 class="title">GAME HUB</h1>
-    <p class="subtitle">Fast classics, clean controls, polished play.</p>
+    <div class="hero-copy">
+      <p class="eyebrow">Arcade command center</p>
+      <h1 class="title">GAME HUB</h1>
+      <p class="subtitle">Pick a challenge, chase the high score, and jump straight into play.</p>
+    </div>
+
+    <div class="hero-panel" aria-hidden="true">
+      <span class="panel-line"></span>
+      <span class="panel-score">16</span>
+      <span class="panel-label">Games Live</span>
+    </div>
   </section>
 
   <section class="games" aria-label="Game list">
-    <article class="card" routerLink="/hanoi" tabindex="0">
-      <div class="icon tower"></div>
+    <article class="card" routerLink="/hanoi" tabindex="0" style="--accent: #22d3ee; --accent-2: #a78bfa;">
+      <div class="icon tower">H</div>
       <span class="tag">Logic</span>
       <h2>Tower of Hanoi</h2>
       <p>Stack the tower in minimum moves.</p>
+      <span class="launch">Launch</span>
     </article>
 
-    <article class="card" routerLink="/tictactoe" tabindex="0">
+    <article class="card" routerLink="/tictactoe" tabindex="0" style="--accent: #f472b6; --accent-2: #22d3ee;">
       <div class="icon mark">XO</div>
       <span class="tag">Duel</span>
       <h2>Tic Tac Toe</h2>
       <p>Classic grid strategy for quick wins.</p>
+      <span class="launch">Launch</span>
     </article>
 
-    <article class="card" routerLink="/snake" tabindex="0">
-      <div class="icon snake"></div>
-      <span class="tag">Reflex</span>
-      <h2>Snake X</h2>
-      <p>Eat, grow, and survive the board.</p>
-    </article>
-
-    <article class="card" routerLink="/puzzle" tabindex="0">
-      <div class="icon tiles"></div>
+    <article class="card" routerLink="/puzzle" tabindex="0" style="--accent: #60a5fa; --accent-2: #fb7185;">
+      <div class="icon tiles">15</div>
       <span class="tag">Puzzle</span>
       <h2>Sliding Puzzle</h2>
       <p>Rebuild the grid with smart moves.</p>
+      <span class="launch">Launch</span>
     </article>
 
-    <article class="card" routerLink="/number-guess" tabindex="0">
+    <article class="card" routerLink="/number-guess" tabindex="0" style="--accent: #facc15; --accent-2: #22d3ee;">
       <div class="icon number">?</div>
       <span class="tag">Mind</span>
       <h2>Guess Master</h2>
       <p>Crack the hidden number faster.</p>
+      <span class="launch">Launch</span>
     </article>
 
-    <article class="card" routerLink="/puzzle-2048" tabindex="0">
+    <article class="card" routerLink="/puzzle-2048" tabindex="0" style="--accent: #fb923c; --accent-2: #f472b6;">
       <div class="icon number">2048</div>
       <span class="tag">Merge</span>
       <h2>2048</h2>
       <p>Slide tiles into bigger scores.</p>
+      <span class="launch">Launch</span>
     </article>
 
-    <!-- <article class="card" routerLink="/flappy-bird" tabindex="0">
-      <div class="icon flappy"></div>
-      <span class="tag">Timing</span>
-      <h2>Flappy Pro</h2>
-      <p>Tap through the pipe corridor.</p>
-    </article> -->
-
-    <article class="card" routerLink="/memory-card" tabindex="0">
-      <div class="icon memory"></div>
+    <article class="card" routerLink="/memory-card" tabindex="0" style="--accent: #a78bfa; --accent-2: #34d399;">
+      <div class="icon memory">M</div>
       <span class="tag">Memory</span>
       <h2>Memory Cards</h2>
       <p>Match pairs with fewer flips.</p>
+      <span class="launch">Launch</span>
     </article>
 
-    <article class="card" routerLink="/minesweeper" tabindex="0">
-      <div class="icon mine"></div>
-      <span class="tag">Tactics</span>
-      <h2>Minesweeper</h2>
-      <p>Read the board and clear safely.</p>
-    </article>
-
-    <article class="card" routerLink="/sudoku" tabindex="0">
-      <div class="icon sudoku">9</div>
-      <span class="tag">Logic</span>
-      <h2>Sudoku</h2>
-      <p>Fill the grid with clean number logic.</p>
-    </article>
-
-    <article class="card" routerLink="/brick-breaker" tabindex="0">
-      <div class="icon brick"></div>
-      <span class="tag">Arcade</span>
-      <h2>Brick Breaker</h2>
-      <p>Keep the ball alive and clear bricks.</p>
-    </article>
-
-    <article class="card" routerLink="/connect-four" tabindex="0">
-      <div class="icon connect-four">●</div>
-      <span class="tag">Strategy</span>
-      <h2>Connect Four</h2>
-      <p>Drop discs and line up four before your opponent.</p>
-    </article>
-
-    <article class="card" routerLink="/water-sort" tabindex="0">
+    <article class="card" routerLink="/water-sort" tabindex="0" style="--accent: #2dd4bf; --accent-2: #60a5fa;">
       <div class="icon water-sort">💧</div>
       <span class="tag">Puzzle</span>
       <h2>Water Sort Puzzle</h2>
       <p>Sort colorful liquids into matching tubes.</p>
+      <span class="launch">Launch</span>
     </article>
 
-    <article class="card" routerLink="/typing-test" tabindex="0">
+    <article class="card" routerLink="/snake" tabindex="0" style="--accent: #34d399; --accent-2: #facc15;">
+      <div class="icon snake">S</div>
+      <span class="tag">Reflex</span>
+      <h2>Snake X</h2>
+      <p>Eat, grow, and survive the board.</p>
+      <span class="launch">Launch</span>
+    </article>
+
+    <article class="card" routerLink="/minesweeper" tabindex="0" style="--accent: #e879f9; --accent-2: #facc15;">
+      <div class="icon mine">*</div>
+      <span class="tag">Tactics</span>
+      <h2>Minesweeper</h2>
+      <p>Read the board and clear safely.</p>
+      <span class="launch">Launch</span>
+    </article>
+
+    <article class="card" routerLink="/sudoku" tabindex="0" style="--accent: #38bdf8; --accent-2: #818cf8;">
+      <div class="icon sudoku">9</div>
+      <span class="tag">Logic</span>
+      <h2>Sudoku</h2>
+      <p>Fill the grid with clean number logic.</p>
+      <span class="launch">Launch</span>
+    </article>
+
+    <article class="card" routerLink="/brick-breaker" tabindex="0" style="--accent: #fb7185; --accent-2: #facc15;">
+      <div class="icon brick">=</div>
+      <span class="tag">Arcade</span>
+      <h2>Brick Breaker</h2>
+      <p>Keep the ball alive and clear bricks.</p>
+      <span class="launch">Launch</span>
+    </article>
+
+    <article class="card" routerLink="/connect-four" tabindex="0" style="--accent: #facc15; --accent-2: #ef4444;">
+      <div class="icon connect-four">●</div>
+      <span class="tag">Strategy</span>
+      <h2>Connect Four</h2>
+      <p>Drop discs and line up four before your opponent.</p>
+      <span class="launch">Launch</span>
+    </article>
+
+    <article class="card" routerLink="/typing-test" tabindex="0" style="--accent: #c084fc; --accent-2: #22d3ee;">
       <div class="icon typing">⌨️</div>
       <span class="tag">Skill</span>
       <h2>Typing Speed Test</h2>
       <p>Test your typing speed and accuracy in real time.</p>
+      <span class="launch">Launch</span>
     </article>
 
-    <article class="card" routerLink="/word-search" tabindex="0">
+    <article class="card" routerLink="/word-search" tabindex="0" style="--accent: #4ade80; --accent-2: #a78bfa;">
       <div class="icon word-search">🔎</div>
       <span class="tag">Word</span>
       <h2>Word Search</h2>
       <p>Find hidden words across the letter grid.</p>
+      <span class="launch">Launch</span>
     </article>
 
-    <article class="card" routerLink="/quick-math" tabindex="0">
+    <article class="card" routerLink="/quick-math" tabindex="0" style="--accent: #f59e0b; --accent-2: #34d399;">
       <div class="icon math">➗</div>
       <span class="tag">Brain</span>
       <h2>Math Puzzle Challenge</h2>
       <p>Solve tricky math puzzles and sharpen your logic.</p>
+      <span class="launch">Launch</span>
     </article>
 
-    <article class="card" routerLink="/space-shooter" tabindex="0">
+    <article class="card" routerLink="/space-shooter" tabindex="0" style="--accent: #38bdf8; --accent-2: #f472b6;">
       <div class="icon space-shooter">🚀</div>
       <span class="tag">Action</span>
       <h2>Space Shooter</h2>
       <p>Blast enemy ships and survive the galaxy battle.</p>
+      <span class="launch">Launch</span>
     </article>
-
+    
   </section>
 </main>

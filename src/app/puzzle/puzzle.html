@@ -1,21 +1,31 @@
-<div class="game-container">
-  <h1>Sliding Puzzle</h1>
-  <div class="top-bar">
-    <div>Moves: {{ moves }}</div>
-    <button (click)="startGame()">Restart</button>
-  </div>
+<main class="game-shell">
+  <section class="game-card">
+    <header class="game-header">
+      <div>
+        <p class="eyebrow">Tile matrix</p>
+        <h1>Sliding Puzzle</h1>
+      </div>
+      <button class="primary-btn" (click)="startGame()">Restart</button>
+    </header>
 
-  <div class="grid">
-    <button class="tile" *ngFor="let tile of tiles; let i = index" [class.empty]="tile === 0" (click)="moveTile(i)">
-      {{ tile !== 0 ? tile : '' }}
-    </button>
-  </div>
-</div>
+    <div class="turn-card">
+      <span>Moves</span>
+      <strong>{{ moves }}</strong>
+    </div>
 
-<div class="overlay" *ngIf="won">
-  <div class="popup">
-    <h2>Puzzle Solved</h2>
-    <p>Moves: {{ moves }}</p>
-    <button (click)="startGame()">Play Again</button>
+    <div class="grid" aria-label="Sliding puzzle board">
+      <button class="tile" *ngFor="let tile of tiles; let i = index" [class.empty]="tile === 0" (click)="moveTile(i)">
+        {{ tile !== 0 ? tile : '' }}
+      </button>
+    </div>
+  </section>
+
+  <div class="overlay" *ngIf="won">
+    <div class="popup">
+      <p class="eyebrow">Puzzle complete</p>
+      <h2>Puzzle Solved</h2>
+      <p>Moves: {{ moves }}</p>
+      <button class="primary-btn" (click)="startGame()">Play Again</button>
+    </div>
   </div>
-</div>
+</main>

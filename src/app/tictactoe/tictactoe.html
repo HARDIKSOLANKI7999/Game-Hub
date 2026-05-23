@@ -1,20 +1,31 @@
-<div class="game-container">
-  <h1>Tic Tac Toe</h1>
-  <div class="status">Turn: <span>{{ currentPlayer }}</span></div>
+<main class="game-shell">
+  <section class="game-card">
+    <header class="game-header">
+      <div>
+        <p class="eyebrow">Neon duel</p>
+        <h1>Tic Tac Toe</h1>
+      </div>
+      <button class="primary-btn" (click)="restart()">Restart</button>
+    </header>
 
-  <div class="board">
-    <button class="cell" *ngFor="let cell of board; let i = index" (click)="makeMove(i)" [class.x]="cell === 'X'" [class.o]="cell === 'O'">
-      {{ cell }}
-    </button>
+    <div class="turn-card">
+      <span>Current Turn</span>
+      <strong>{{ currentPlayer }}</strong>
+    </div>
+
+    <div class="board" aria-label="Tic Tac Toe board">
+      <button class="cell" *ngFor="let cell of board; let i = index" (click)="makeMove(i)" [class.x]="cell === 'X'" [class.o]="cell === 'O'">
+        {{ cell }}
+      </button>
+    </div>
+  </section>
+
+  <div class="overlay" *ngIf="winner">
+    <div class="popup">
+      <p class="eyebrow">Match complete</p>
+      <h2 *ngIf="winner !== 'Draw'">Player {{ winner }} Wins</h2>
+      <h2 *ngIf="winner === 'Draw'">It's a Draw</h2>
+      <button class="primary-btn" (click)="restart()">Play Again</button>
+    </div>
   </div>
-
-  <button (click)="restart()">Restart</button>
-</div>
-
-<div class="overlay" *ngIf="winner">
-  <div class="popup">
-    <h2 *ngIf="winner !== 'Draw'">Player {{ winner }} Wins</h2>
-    <h2 *ngIf="winner === 'Draw'">It's a Draw</h2>
-    <button (click)="restart()">Play Again</button>
-  </div>
-</div>
+</main>

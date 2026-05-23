@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-puzzle',
+  selector: 'app- ',
   imports: [CommonModule],
   templateUrl: './puzzle.html',
   styleUrl: './puzzle.css',

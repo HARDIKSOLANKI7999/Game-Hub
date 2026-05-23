@@ -1,53 +1,76 @@
-<div class="game-container">
-  <h1>Tower of Hanoi</h1>
+<main class="game-shell hanoi-shell">
+  <section class="game-card">
+    <header class="game-header">
+      <div>
+        <p class="eyebrow">Logic chamber</p>
+        <h1>Tower of Hanoi</h1>
+      </div>
+      <button class="primary-btn" (click)="startGame()">Restart</button>
+    </header>
 
-  <div class="top-bar">
-    <div class="disk-control">
-      Disks: {{ diskCount }}
-      <button (click)="changeDisks(-1)" aria-label="Decrease disks">-</button>
-      <button (click)="changeDisks(1)" aria-label="Increase disks">+</button>
-    </div>
-    <div class="moves">Moves: {{ moves }} / Min: {{ getMinMoves() }}</div>
-    <button class="restart" (click)="startGame()">Restart</button>
-  </div>
-
-  <div class="rods">
-    <div class="rod" (click)="selectRod('A')" (dragover)="allowDrop($event)" (drop)="onDrop('A')"
-      [class.selected]="selectedRod === 'A'">
-      <div class="pole"></div>
-      <div class="base"></div>
-      <div class="disk" *ngFor="let disk of rods.A; let i = index" [draggable]="i === rods.A.length - 1"
-        (dragstart)="onDragStart('A')" [style.width.px]="disk * 35" [style.background]="getColor(disk)">
+    <div class="hud">
+      <div class="hud-card">
+        <span>Disks</span>
+        <strong>{{ diskCount }}</strong>
+        <div class="stepper" aria-label="Disk controls">
+          <button (click)="changeDisks(-1)" aria-label="Decrease disks">-</button>
+          <button (click)="changeDisks(1)" aria-label="Increase disks">+</button>
+        </div>
+      </div>
+      <div class="hud-card">
+        <span>Moves</span>
+        <strong>{{ moves }}</strong>
+      </div>
+      <div class="hud-card">
+        <span>Minimum</span>
+        <strong>{{ getMinMoves() }}</strong>
       </div>
     </div>
 
-    <div class="rod" (click)="selectRod('B')" (dragover)="allowDrop($event)" (drop)="onDrop('B')"
-      [class.selected]="selectedRod === 'B'">
-      <div class="pole"></div>
-      <div class="base"></div>
-      <div class="disk" *ngFor="let disk of rods.B; let i = index" [draggable]="i === rods.B.length - 1"
-        (dragstart)="onDragStart('B')" [style.width.px]="disk * 35" [style.background]="getColor(disk)">
-      </div>
-    </div>
+    <section class="board-panel">
+      <div class="rods">
+        <div class="rod" (click)="selectRod('A')" (dragover)="allowDrop($event)" (drop)="onDrop('A')"
+          [class.selected]="selectedRod === 'A'">
+          <span class="rod-label">A</span>
+          <div class="pole"></div>
+          <div class="base"></div>
+          <div class="disk" *ngFor="let disk of rods.A; let i = index" [draggable]="i === rods.A.length - 1"
+            (dragstart)="onDragStart('A')" [style.width.px]="disk * 35" [style.background]="getColor(disk)">
+          </div>
+        </div>
 
-    <div class="rod" (click)="selectRod('C')" (dragover)="allowDrop($event)" (drop)="onDrop('C')"
-      [class.selected]="selectedRod === 'C'">
-      <div class="pole"></div>
-      <div class="base"></div>
-      <div class="disk" *ngFor="let disk of rods.C; let i = index" [draggable]="i === rods.C.length - 1"
-        (dragstart)="onDragStart('C')" [style.width.px]="disk * 35" [style.background]="getColor(disk)">
-      </div>
-    </div>
-  </div>
+        <div class="rod" (click)="selectRod('B')" (dragover)="allowDrop($event)" (drop)="onDrop('B')"
+          [class.selected]="selectedRod === 'B'">
+          <span class="rod-label">B</span>
+          <div class="pole"></div>
+          <div class="base"></div>
+          <div class="disk" *ngFor="let disk of rods.B; let i = index" [draggable]="i === rods.B.length - 1"
+            (dragstart)="onDragStart('B')" [style.width.px]="disk * 35" [style.background]="getColor(disk)">
+          </div>
+        </div>
 
-  <p class="status-line">{{ statusMessage }}</p>
+        <div class="rod" (click)="selectRod('C')" (dragover)="allowDrop($event)" (drop)="onDrop('C')"
+          [class.selected]="selectedRod === 'C'">
+          <span class="rod-label">C</span>
+          <div class="pole"></div>
+          <div class="base"></div>
+          <div class="disk" *ngFor="let disk of rods.C; let i = index" [draggable]="i === rods.C.length - 1"
+            (dragstart)="onDragStart('C')" [style.width.px]="disk * 35" [style.background]="getColor(disk)">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="status-line">{{ statusMessage }}</p>
+  </section>
 
   <div class="overlay" *ngIf="showWinPopup">
     <div class="popup">
+      <p class="eyebrow">Victory</p>
       <h2>You Won</h2>
       <p>Moves: {{ moves }}</p>
       <p>Minimum: {{ getMinMoves() }}</p>
-      <button (click)="restartGame()">Play Again</button>
+      <button class="primary-btn" (click)="restartGame()">Play Again</button>
     </div>
   </div>
-</div>
+</main>

@@ -21,7 +21,16 @@ export class MemoryCard {
 
   won = false;
 
-  emojis = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+  // emojis = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+//   emojis = [
+//   '🍔','🍕','🍟','🍩',
+//   '🍓','🍉','🍪','🧃'
+// ];
+
+emojis = [
+  '❤️','💙','💚','💛',
+  '🧡','💜','🖤','🤍'
+];
 
   ngOnInit() {
     this.startGame();
